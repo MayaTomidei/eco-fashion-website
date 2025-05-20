@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moda Sostenible - Inicio</title>
+    <script>
+        alert("Hello eco world");
+
+        window.onload = function () {
+            let limit = prompt("Introduce el límite para la tabla del 3:");
+            limit = parseInt(limit);
+
+            if (!isNaN(limit)) {
+                let resultado = "Usando FOR:\n";
+                for (let i = 0; i <= limit; i++) {
+                    resultado += `3 x ${i} = ${3 * i}\n`;
+                }
+
+                resultado += "\nUsando WHILE:\n";
+                let j = 0;
+                while (j <= limit) {
+                    resultado += `3 x ${j} = ${3 * j}\n`;
+                    j++;
+                }
+
+                document.getElementById("tabla3").textContent = resultado;
+
+                setTimeout(function () {
+                    document.getElementById("tabla-container").style.display = "none";
+                }, 3000);
+            } else {
+                document.getElementById("tabla3").textContent = "Por favor, ingresa un número válido.";
+            }
+        };
+
+        // Juego de adivinanza
+        let random = Math.floor(Math.random() * 100);
+        function guessNumber(userValue, random) {
+            const result = document.getElementById("answer");
+            if (parseInt(userValue) === random) {
+                result.textContent = "¡Correcto! Adivinaste el número.";
+            } else {
+                result.textContent = "Incorrecto. Intenta otra vez.";
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav {
+            position: absolute;
+            top: 10px;
+            right: 150px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        #suscripcion {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        #suscripcion input[type="email"] {
+            padding: 5px;
+            width: 200px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        #suscripcion button {
+            padding: 5px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #suscripcion button:hover {
+            background-color: #555;
+        }
+
+        #banner {
+            text-align: center;
+            padding: 50px;
+            background-color: #f0f0f0;
+        }
+
+        #banner h2 {
+            font-size: 36px;
+        }
+
+        #banner button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #banner button:hover {
+            background-color: #555;
+        }
+
+        #productos-destacados {
+            padding: 20px;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        #productos-destacados .producto {
+            width: 23%;
+            text-align: center;
+        }
+
+        #productos-destacados .producto img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        #productos-destacados .producto p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        #tabla-container {
+            padding: 20px;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        pre {
+            font-size: 16px;
+            color: #333;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .flowchart {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1%;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background-color: #f0e6ff;
+            border: 2px solid purple;
+            border-radius: 10px;
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+            color: #4b0082;
+            font-size: 18px;
+            position: relative;
+        }
+
+        .card:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: purple;
+        }
+
+        @media (max-width: 768px) {
+            .flowchart {
+                grid-template-columns: 1fr;
+            }
+            .card:not(:last-child)::after {
+                content: '↓';
+                right: auto;
+                top: auto;
+                bottom: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Adivinanza */
+        #adivinanza {
+            background-color: #f9f9f9;
+            padding: 30px;
+            margin: 20px;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #adivinanza input[type="number"] {
+            padding: 8px;
+            font-size: 16px;
+            margin: 10px;
+            width: 80px;
+        }
+
+        #adivinanza input[type="submit"] {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #adivinanza input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .redes-sociales a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Tabla del 3 -->
+    <div id="tabla-container">
+        <h3>Tabla del 3</h3>
+        <pre id="tabla3">Cargando tabla...</pre>
+    </div>
+
+    <header>
+        <div>
+            <h1>Moda Sostenible</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="sostenibilidad.html">Sostenibilidad</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="login.html"><img alt="Inicio de sesión" src="media/login/icono.svg" /></a></li>
+                </ul>
+            </nav>
+            <div id="suscripcion">
+                <input type="email" placeholder="Tu email">
+                <button>Suscribirse</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="banner">
+            <h2>Bienvenidos a Moda Sostenible</h2>
+            <p>Explora nuestra colección de ropa ecológica y ética.</p>
+            <button onclick="window.location.href='productos.html'">Descubre más</button>
+        </section>
+
+        <section class="flowchart">
+            <div class="card"><div class="flowcharttext">Inicio</div></div>
+            <div class="card"><div class="flowcharttext">Diseño</div></div>
+            <div class="card"><div class="flowcharttext">Producción</div></div>
+            <div class="card"><div class="flowcharttext">Entrega</div></div>
+        </section>
+
+        <section id="productos-destacados">
+            <h3>Productos Destacados</h3>
+            <div class="producto">
+                <img src="https://i.pinimg.com/736x/91/38/4f/91384f9cf261b3a88997806f1245d918.jpg" alt="Vestido Ecológico">
+                <p>Vestido Ecológico - $50</p>
+            </div>
+            <div class="producto">
+                <img src="https://i.pinimg.com/736x/d4/4d/03/d44d03b6d79800420824cdcf4f8d4149.jpg" alt="Camiseta de Algodón Orgánico">
+                <p>Camiseta de Algodón Orgánico - $28</p>
+            </div>
+            <div class="producto">
+                <img src="https://i.pinimg.com/736x/f4/ba/44/f4ba44dbb2a04b519d538f1c13036dab.jpg" alt="Pantalón Ecológico">
+                <p>Pantalón Ecológico - $45</p>
+            </div>
+            <div class="producto">
+                <img src="https://i.pinimg.com/736x/c6/c4/c6/c6c4c617c5119bf5a95a1f7180d91803.jpg" alt="Chaqueta Sostenible">
+                <p>Chaqueta Sostenible - $60</p>
+            </div>
+        </section>
+
+        <!-- Sección de juego de adivinanza -->
+        <section id="adivinanza" class="subscribe">
+            <h2 class="crewtittle">¡Un reto adicional para ti!</h2>
+            <label for="number">Escribe un número entre 0 y 100. ¡Adivina el número!</label>
+            <form action="javascript:guessNumber(number.value, random)" method="post">
+                <input type="number" id="number" name="number" />
+                <input class="subscribebutton" type="submit" name="guess" value="¡Adivinar ahora!" />
+            </form>
+            <p id="answer"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Moda Sostenible. Todos los derechos reservados.</p>
+        <div class="redes-sociales">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+        <div class="suscribe">
+            <h2>Do you want more information about the store!!</h2>
+            <h4>Type your mail to receive the information</h4>
+            <form id="footer-form">
+                <input type="email" id="footer-email" name="email" placeholder="ecofashion@mail.com" required>
+                <input type="submit" value="Enviar">
+            </form>
+            <p id="mailsuccess"></p> <!-- Este es el contenedor para el mensaje -->
+        </div>
+    </footer>
+</body>
+</html>
+

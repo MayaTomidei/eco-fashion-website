@@ -1,0 +1,49 @@
+.flowchart {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1%;
+  width: 100%;
+  height: auto;
+  margin: 20px;
+}
+
+.card {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+  border: 2px solid purple;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0e6ff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.flowcharttext {
+  font-size: 16px;
+  font-weight: bold;
+  color: #4b0082;
+}
+
+/* Flechas entre tarjetas */
+.card:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: purple;
+}
+
+/* The label related to the input of the number will be displayed below the other contents and will have a margin to separate the other elements. */
+.subscribe label {
+  display: block;
+  margin-bottom: 20px;
+}
+
+
+
